@@ -25,7 +25,7 @@ sudoers_securepaths:
 sudoers_rules:
   - 'root ALL=(ALL) ALL'
   - '%wheel ALL=(ALL) ALL'
-	- '%super ALL=(ALL) NOPASSWD:ALL'
+  - '%super ALL=(ALL) NOPASSWD:ALL'
 
 sudoers_mailto: xy@yz.com
 ```
