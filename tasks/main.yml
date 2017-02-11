@@ -1,0 +1,17 @@
+---
+- name: Install the sudo package
+  package:
+    name: sudo
+    state: present
+  tags:
+    - sudo
+
+- name: Deploy the sudoers file
+  template:
+    src: sudoers.j2
+    dest: /etc/sudoers
+    owner: root
+    group: root
+    mode: 0440
+  tags:
+    - sudo

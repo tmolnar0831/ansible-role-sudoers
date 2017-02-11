@@ -1,0 +1,20 @@
+#{{ ansible_managed }}
+
+Defaults   !visiblepw
+Defaults    always_set_home
+Defaults    env_reset
+
+{% if sudoers_mailto is defined %}
+Defaults mail_badpass
+Defaults mailto={{ sudoers_mailto }}
+{% endif %}
+
+{% for envkeep in sudoers_envkeeps %}
+Defaults env_keep += "{{ envkeep }}"
+{% endfor %}
+
+Defaults secure_path = {{ sudoers_securepaths | join(":") }}
+
+{% for rule in sudoers_rules %}
+{{ rule }}
+{% endfor %}
