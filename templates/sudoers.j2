@@ -7,7 +7,7 @@ Defaults    env_reset
 {% if sudoers_mailto is defined %}
 Defaults mail_badpass
 Defaults mailto={{ sudoers_mailto }}
-{% endif %}
+{% endif -%}
 
 {% for envkeep in sudoers_envkeeps %}
 Defaults env_keep += "{{ envkeep }}"
@@ -19,13 +19,13 @@ Defaults secure_path = {{ sudoers_securepaths | join(":") }}
 {% for alias in sudoers_hostaliases.keys() %}
 Host_Alias {{ alias }} = {{ sudoers_hostaliases[alias] | join(", ") }}
 {% endfor %}
-{% endif %}
+{% endif -%}
 
 {% if sudoers_commandaliases is defined %}
 {% for alias in sudoers_commandaliases.keys() %}
 Cmnd_Alias {{ alias }} = {{ sudoers_commandaliases[alias] | join(", ") }}
 {% endfor %}
-{% endif %}
+{% endif -%}
 
 {% for rule in sudoers_rules %}
 {{ rule }}
