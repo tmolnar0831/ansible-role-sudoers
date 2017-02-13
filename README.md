@@ -27,6 +27,19 @@ sudoers_rules:
   - '%wheel ALL=(ALL) ALL'
   - '%super ALL=(ALL) NOPASSWD:ALL'
 
+sudoers_hostaliases:
+  SERVERS:
+    - 192.168.0.202
+    - 192.168.0.203
+  NETWORK:
+    - 192.168.0.0/255.255.255.0
+
+sudoers_commandaliases:
+  SHUTDOWN_CMDS:
+    - /sbin/poweroff
+    - /sbin/reboot
+    - /sbin/halt
+
 sudoers_mailto: xy@yz.com
 ```
 
