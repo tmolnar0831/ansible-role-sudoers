@@ -1,4 +1,4 @@
-#{{ ansible_managed }}
+# {{ ansible_managed }}
 
 Defaults   !visiblepw
 Defaults    always_set_home
@@ -14,6 +14,18 @@ Defaults env_keep += "{{ envkeep }}"
 {% endfor %}
 
 Defaults secure_path = {{ sudoers_securepaths | join(":") }}
+
+{% if sudoers_hostaliases is defined %}
+{% for alias in sudoers_hostaliases.keys() %}
+Host_Alias {{ alias }} = {{ sudoers_hostaliases[alias] | join(", ") }}
+{% endfor %}
+{% endif %}
+
+{% if sudoers_commandaliases is defined %}
+{% for alias in sudoers_commandaliases.keys() %}
+Cmnd_Alias {{ alias }} = {{ sudoers_commandaliases[alias] | join(", ") }}
+{% endfor %}
+{% endif %}
 
 {% for rule in sudoers_rules %}
 {{ rule }}
