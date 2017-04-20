@@ -6,7 +6,7 @@
   tags:
     - sudoers
 
-- name: Deploy the sudoers file
+- name: Validate and deploy the sudoers file
   template:
     src: sudoers.j2
     dest: /etc/sudoers
