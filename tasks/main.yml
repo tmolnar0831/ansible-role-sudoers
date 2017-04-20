@@ -4,7 +4,7 @@
     name: sudo
     state: present
   tags:
-    - sudo
+    - sudoers
 
 - name: Deploy the sudoers file
   template:
@@ -13,5 +13,6 @@
     owner: root
     group: root
     mode: 0440
+    validate: visudo -cf %s
   tags:
-    - sudo
+    - sudoers

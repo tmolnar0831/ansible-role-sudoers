@@ -1,4 +1,4 @@
-# Ansible role that Ansible role that manages sudo and the sudoers file
+# Ansible role that installs sudo and manages the sudoers file
 
 [![build status](https://gitlab.com/stiron/ansible-sudoers/badges/master/build.svg)](https://gitlab.com/stiron/ansible-sudoers/commits/master)
 
