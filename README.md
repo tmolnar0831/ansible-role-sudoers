@@ -1,14 +1,12 @@
 # Ansible role that installs sudo and manages the sudoers file
 
-[![build status](https://gitlab.com/stiron/ansible-sudoers/badges/master/build.svg)](https://gitlab.com/stiron/ansible-sudoers/commits/master)
-
 ## Requirements
 
 This module requires Ansible 2.x version.
 
 ## Role variables
 
-```
+```yaml
 sudoers_envkeeps:
   - "COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS"
   - "MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE"
@@ -45,7 +43,7 @@ sudoers_mailto: xy@yz.com
 
 ## Examples
 
-```
+```yaml
 - hosts: all 
   roles:
     - sudoers
@@ -61,4 +59,4 @@ MIT
 
 ## Author
 
-Tamas Molnar - <tmolnar0831@gmail.com>
+Tamas Molnar - <tmolnar0831@gmail.com> - <https://tomsitcafe.com>
