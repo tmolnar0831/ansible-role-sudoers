@@ -1,8 +1,8 @@
-# Ansible role that installs sudo and manages the sudoers file
+# Ansible role that installs and manages sudo
 
 ## Requirements
 
-This module requires Ansible 2.x version.
+This module requires Ansible 2.x9+ version.
 
 ## Role variables
 

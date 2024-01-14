@@ -6,10 +6,10 @@
   tags:
     - sudoers
 
-- name: Validate and deploy the sudoers file
+- name: Validate and deploy the config file
   template:
     src: sudoers.j2
-    dest: /etc/sudoers
+    dest: /etc/sudoers.d/sudocustom
     owner: root
     group: root
     mode: 0440
