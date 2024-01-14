@@ -1,0 +1,27 @@
+---
+- name: Destroy the molecule container after testing
+  hosts: molecule
+  gather_facts: false
+
+  tasks:
+    - name: Stop and remove the container
+      delegate_to: localhost
+      containers.podman.podman_container:
+        name: "{{ inventory_hostname }}"
+        state: absent
+        rm: true
+    - name: Remove potentially stopped container
+      delegate_to: localhost
+      ansible.builtin.command:
+        cmd: podman container rm --ignore {{ inventory_hostname }}
+      changed_when: false
+
+- name: Remove the dynamic molecule inventory
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Remove the dynamic inventory file from {{ molecule_ephemeral_directory }}
+      ansible.builtin.file:
+        path: "{{ molecule_ephemeral_directory }}/inventory/molecule_inventory.yml"
+        state: absent

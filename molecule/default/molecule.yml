@@ -1,0 +1,13 @@
+---
+role_name_check: 1
+dependency:
+  name: galaxy
+  options:
+    requirements-file: requirements.yml
+platforms:
+  - name: ansible-debian12-test
+    image: tmolnar-debian:latest
+lint: |
+  set -e
+  yamllint .
+  ansible-lint

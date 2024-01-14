@@ -1,0 +1,13 @@
+---
+- name: Converge
+  hosts: molecule
+  gather_facts: false
+
+  vars:
+    install_podman_compose: true
+
+  tasks:
+    - name: Check the role
+      ansible.builtin.include_role:
+        name: podman_install
+        tasks_from: main.yml
